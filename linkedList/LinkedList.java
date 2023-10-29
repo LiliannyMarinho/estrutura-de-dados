@@ -14,7 +14,7 @@ public class LinkedList {
     public void setFirst(Node first){
         this.first = first;
     }
-    public Node getLaste(){
+    public Node getLast(){
         return last;
     }
     public void setLast(Node last){
@@ -28,10 +28,27 @@ public class LinkedList {
     }
 
     public void insert(int newdata){
-
+        Node newNode = new Node(newdata);
+        if(isEmpty()){
+            first = newNode;
+            last = newNode;
+        }else{
+            last.setProx(newNode);
+            last = newNode;
+        }
+        size++;
     }
+
     public void remove(int newdata){
 
+    }
+
+    public boolean isEmpty(){
+        return first == null;
+    }
+
+    public boolean isFull(){
+        return first != null;
     }
 
 }
